@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Document</title>
+</head>
+<body>  
+  <div id="container" class="container">
+    <img class="center" id="coverImg" src="static/coverPic.PNG">    
+  </div>
+  <div class="container2">
+    <form method="POST">
+        <div class="form-group">
+        <label class="font-weight-bold" for="sel1">Year:</label>
+        <select name="sel1" class="form-control" id="sel1">
+            <option id="2010">2010</option>
+            <option id="2011">2011</option>
+            <option id="2012">2012</option>
+            <option id="2013">2013</option>
+            <option id="2014">2014</option>
+            <option id="2015">2015</option>
+            <option id="2016">2016</option>
+            <option id="2017">2017</option>
+            <option id="2018">2018</option>
+            <option id="2019">2019</option>
+            <option id="2020">2020</option>
+            <option id="2021">2021</option>
+        </select>
+        <label class="font-weight-bold" for="sel2">County:</label>
+        <select name="sel2" class="form-control" id="sel2" default="Cork">
+            <option id="Carlow">Carlow</option>
+            <option id="Cavan">Cavan</option>
+            <option id="Clare">Clare</option>
+            <option id="Cork">Cork</option>
+            <option id="Donegal">Donegal</option>
+            <option id="Dublin">Dublin</option>
+            <option id="Galway">Galway</option>
+            <option id="Kerry">Kerry</option>
+            <option id="Kildare">Kildare</option>
+            <option id="Kilkenny">Kilkenny</option>
+            <option id="Loais">Laois</option>
+            <option id="Leitrim">Leitrim</option>
+            <option id="Limerick">Limerick</option>
+            <option id="Longford">Longford</option>
+            <option id="Louth">Louth</option>
+            <option id="Mayo">Mayo</option>
+            <option id="Meath">Meath</option>
+            <option id="Monaghan">Monaghan</option>
+            <option id="Offaly">Offaly</option>
+            <option id="Roscommon">Roscommon</option>
+            <option id="Sligo">Sligo</option>
+            <option id="Tipperary">Tipperary</option>
+            <option id="Waterford">Waterford</option>
+            <option id="Westmeath">Westmeath</option>
+            <option id="Wexford">Wexford</option>
+            <option id="Wicklow">Wicklow</option>
+        </select>
+        <label class="font-weight-bold" for="sel3">House Type:</label>
+        <select name="sel3" class="form-control" id="sel3">
+            <option id="New">New Dwelling house /Apartment</option>
+            <option id="Sec">Second-Hand Dwelling house /Apartment</option>                 
+        </select>    
+        
+        </div>
+        <button class="btn btn-info">Predict</button>
+    </form>
+    <div class="details">
+        <p><b>Predicted Cost:</b> </p>
+        <p>€{{ prediction }}</p>
+        
+    </div>        
+</div>
+    
+</body>
+
+<script type="text/javascript">
+    var year = "{{ year }}"
+    var county = "{{ county }}"
+    var house_type = "{{ house_type }}"
+
+    if (house_type == 'New') {
+        document.getElementById('New').selected = 'selected'
+    }
+    else {
+        document.getElementById('Sec').selected = 'selected'
+
+    }
+    document.getElementById(year).selected = 'selected'
+    document.getElementById(county).selected = 'selected'
+    
+</script>
+</html>
