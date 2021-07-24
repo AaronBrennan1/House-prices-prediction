@@ -1,0 +1,25 @@
+
+
+#coverImg {
+    width: 80%;
+}
+
+#container, .details {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column;
+    
+}
+
+.container2 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: row;
+}
+
+.details {
+    margin-left: 100px;
+    font-size: 20px;
+}
